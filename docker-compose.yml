@@ -13,7 +13,7 @@ services:
     expose: 
       3306
     volumes:
-      /home/marceloratton/Documentos/projetos/pessoal/php-socket-chat/database:/var/lib/mysql
+      ~/projetos/dockers/msyql/socket-chat/database:/var/lib/mysql
 
 
 # docker run --name socket-chat 
