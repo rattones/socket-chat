@@ -17,7 +17,7 @@ services:
 
 
 # docker run --name socket-chat 
-#   -v /dados/Projects/pessoal/php-socket-chat/database:/var/lib/mysql 
+#   -v ~/projetos/dockers/msyql/socket-chat/database:/var/lib/mysql 
 #   -e MYSQL_ROOT_PASSWORD=MySQL123 
 #       MYSQL_USER=user
 #       MYSQL_PASSWORD=MyUSER123
