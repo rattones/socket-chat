@@ -20,10 +20,12 @@ export default function Login() {
     loadUserEmail();
   }, []);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(email);
+    const response= await api.post('/auth', { header: { email } })
+
+    console.log(response);
   }
 
   return (
