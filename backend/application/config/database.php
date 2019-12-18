@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'MySQL123',
-	'database' => 'chat',
+	'hostname' => 'marceloratton.com',
+	'username' => 'mratton-chat',
+	'password' => 'IyFQT_&jyVv.',
+	'database' => 'mratton-socket-chat',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
