@@ -26,6 +26,8 @@ class Api extends CI_Controller
     }
     /**
      * add a new user
+	 * @param string $name [by post]
+	 * @param string $email [by post]
      * @return json
      */
     public function addUser()
@@ -37,10 +39,10 @@ class Api extends CI_Controller
     }
     /**
      * authenticate an user by email
-     * @param string $email
+	 * @param string $email [by post]
      * @return json
      */
-    public function authenticate(string $email) 
+    public function authenticate() 
     {   
         $email= $this->input->post('email');
         $response= $this->ModelUser->authenticate($email);
