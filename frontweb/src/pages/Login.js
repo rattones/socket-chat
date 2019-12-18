@@ -20,11 +20,19 @@ export default function Login() {
     loadUserEmail();
   }, []);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(email);
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" placeholder="Enter email" 
+          onChange={event => setEmail(event.target.value)}
+        />
         <Form.Text className="text-muted">
           Entre com seu email de cadastro
         </Form.Text>

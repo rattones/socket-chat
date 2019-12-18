@@ -47,5 +47,20 @@ class ModelUser extends CI_Model
 
         if ($this->db->affected_rows() == 1) { return true; }
         else { return false; }
-    }
+	}
+	/**
+	 * authentica an user by email
+	 * @param string $email
+	 * @return array
+	 */
+	public function authenticate(string $email) : array 
+	{
+		$this->db->select()
+			->from('user')
+			->where('email', $email);
+		
+		$query= $this->db->get();
+
+		return $query->result_array();
+	}
 }

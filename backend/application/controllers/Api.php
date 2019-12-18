@@ -35,4 +35,16 @@ class Api extends CI_Controller
 
         echo json_encode([$response]);
     }
+    /**
+     * authenticate an user by email
+     * @param string $email
+     * @return json
+     */
+    public function authenticate(string $email) 
+    {   
+        $email= $this->input->post('email');
+        $response= $this->ModelUser->authenticate($email);
+
+        echo json_encode($response);
+    }
 }
