@@ -12,6 +12,8 @@ class Api extends CI_Controller
         parent::__construct();
         // loading models
 		$this->load->model('ModelUser');
+        var_dump($_SERVER);
+        var_dump($_REQUEST);
     }
     /**
      * get user list
@@ -20,9 +22,10 @@ class Api extends CI_Controller
      */
     public function getUser(string $uid= null) 
     {
+
         $users= $this->ModelUser->get($uid);
 
-        echo json_encode($users);
+        echo json_encode($uid);
     }
     /**
      * add a new user

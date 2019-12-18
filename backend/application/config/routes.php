@@ -58,4 +58,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['user']                  ['get']=  'api/getuser';
 $route['user/(:any)']           ['get']=  'api/getuser/$1';
 $route['user']                  ['post']= 'api/addUser';
-$route['auth']                  ['post']= 'api/authenticate';
+$route['auth']                  ['post']=  'api/authenticate';
+$route['auth']                  ['options']=  'api/authenticate';

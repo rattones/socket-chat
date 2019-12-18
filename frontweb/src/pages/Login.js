@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button }  from 'react-bootstrap'
 
 import api from '../services/api';
+import axios from 'axios';
 
 export default function Login() {
 
@@ -11,10 +12,18 @@ export default function Login() {
 
   useEffect(()=>{
     async function loadUserEmail() {
-      const uid= localStorage.getItem('uid');
-      const response= await api.get('/user', { header: {uid } });
+      const sessUid= await localStorage.getItem('uid');
 
-      console.log(response);
+      console.log(sessUid);
+
+      if (sessUid === '') {
+        // console.log('vazio');
+        return false;
+      }
+
+      const response = await axios.get(`http://chat.marceloratton.com/user/${sessUid}`);
+
+      console.log(response.data);
     }
 
     loadUserEmail();
@@ -23,7 +32,15 @@ export default function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response= await api.post('/auth', { header: { email } })
+    console.log(email)
+
+    // const response = await axios.post('http://chat.marceloratton.com/auth', { params: { "email": 'rattones@gmail.com' }})
+    const response = await axios({
+      method: 'post',
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      url: 'http://chat.marceloratton.com/auth',
+      data: { email: "rattones@gmail.com" }
+    });
 
     console.log(response);
   }
@@ -32,7 +49,7 @@ export default function Login() {
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" 
+        <Form.Control type="email" placeholder="seuemail@host.com" 
           onChange={event => setEmail(event.target.value)}
         />
         <Form.Text className="text-muted">
