@@ -16,7 +16,7 @@ class ModelUser extends CI_Model
      * @param string $uid 
      * @return array 
      */
-    public function list(string $uid= null) : array
+    public function get(string $uid= null) : array
     {
         $this->db->select()
             ->from('user');

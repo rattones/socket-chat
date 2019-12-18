@@ -20,14 +20,15 @@ class Api extends CI_Controller
      */
     public function getUser(string $uid= null) 
     {
-        $users= $this->ModelUser->list($uid);
+        $users= $this->ModelUser->get($uid);
 
         echo json_encode($users);
     }
     /**
      * add a new user
-	 * @param string $name [by post]
-	 * @param string $email [by post]
+     * [by post]
+	 * @param string $name 
+	 * @param string $email 
      * @return json
      */
     public function addUser()
@@ -39,7 +40,8 @@ class Api extends CI_Controller
     }
     /**
      * authenticate an user by email
-	 * @param string $email [by post]
+     * [by post]
+	 * @param string $email 
      * @return json
      */
     public function authenticate() 
