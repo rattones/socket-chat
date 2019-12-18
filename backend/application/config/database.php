@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'marceloratton.com',
 	'username' => 'mratton_chat',
 	'password' => 'IyFQT_&jyVv.',
 	'database' => 'mratton_socket	',

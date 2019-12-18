@@ -38,7 +38,7 @@ class ModelUser extends CI_Model
     {
         if (!isset($obj['email'])) { return false; }
 
-        $uid= uniqid(rand(), true);
+        $uid= str_replace('.', '_', uniqid(rand(), true));
 
         $this->db->set('uid', $uid)
             ->set('name', $obj['name'])

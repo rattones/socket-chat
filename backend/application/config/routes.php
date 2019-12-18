@@ -55,6 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 // api methods
-$route['user']['get']=          'api/getuser';
-$route['user/:any']['get']=     'api/getuser/$1';
-$route['user']['post']=         'api/addUser';
+$route['user']					['get']=  'api/getuser';
+$route['user/(:any)']		['get']=  'api/getuser/$1';
+$route['user']					['post']= 'api/addUser';
