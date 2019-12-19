@@ -14,7 +14,7 @@ export default function Login() {
 
         console.log(name, email)
 
-        const response = await api.post('/user', { name, email });
+        const response = await api.post('/user', { name, email} );
 
         console.log(response);
     }

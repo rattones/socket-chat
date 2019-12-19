@@ -2,7 +2,7 @@
 /**
  * api controller
  */
-class Api extends CI_Controller
+class Api extends MY_Controller
 {
     /**
      * parent constructor
@@ -20,10 +20,9 @@ class Api extends CI_Controller
      */
     public function getUser(string $uid= null) 
     {
-
         $users= $this->ModelUser->get($uid);
 
-        echo json_encode($users);
+        $this->response(200, $users);
     }
     /**
      * add a new user
@@ -35,9 +34,11 @@ class Api extends CI_Controller
     public function addUser()
     {
 		$user= $this->input->post();
-		$response= $this->ModelUser->add($user);
+        echo '<pre>';
+        var_dump($user);
+		// $response= $this->ModelUser->add($user);
 
-        echo json_encode([$response]);
+        $this->response(200, [$user]);
     }
     /**
      * authenticate an user by email
@@ -50,7 +51,7 @@ class Api extends CI_Controller
         $email= $this->input->post('email');
         $response= $this->ModelUser->authenticate($email);
 
-        echo json_encode($response);
+        $this->response(200, $response);
     }
     /**
      * send messager to chat socket
@@ -59,5 +60,7 @@ class Api extends CI_Controller
     public function sendMessage()
     {
         $post= $this->input->post();
+
+        $this->response(200, $post);
     }
 }

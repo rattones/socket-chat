@@ -35,13 +35,8 @@ export default function Login() {
     console.log(email)
 
     // const response = await axios.post('http://chat.marceloratton.com/auth', { params: { "email": 'rattones@gmail.com' }})
-    const response = await axios({
-      method: 'post',
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      url: 'http://chat.marceloratton.com/auth',
-      data: { email: "rattones@gmail.com" }
-    });
-
+    const response = await api.post('/auth', { email: "rattones@gmail.com" } );
+        
     console.log(response);
   }
 
