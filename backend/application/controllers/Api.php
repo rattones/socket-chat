@@ -12,8 +12,6 @@ class Api extends CI_Controller
         parent::__construct();
         // loading models
 		$this->load->model('ModelUser');
-        var_dump($_SERVER);
-        var_dump($_REQUEST);
     }
     /**
      * get user list
@@ -25,7 +23,7 @@ class Api extends CI_Controller
 
         $users= $this->ModelUser->get($uid);
 
-        echo json_encode($uid);
+        echo json_encode($users);
     }
     /**
      * add a new user
@@ -53,5 +51,13 @@ class Api extends CI_Controller
         $response= $this->ModelUser->authenticate($email);
 
         echo json_encode($response);
+    }
+    /**
+     * send messager to chat socket
+     * @return json
+     */
+    public function sendMessage()
+    {
+        $post= $this->input->post();
     }
 }
