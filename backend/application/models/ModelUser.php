@@ -63,4 +63,17 @@ class ModelUser extends CI_Model
 
 		return $query->result_array();
 	}
+    /**
+     * delete one user
+     * @param  string $uid
+     * @return bool
+     */
+    public function delete(string $uid) : bool 
+    {
+        $this->db->where('uid', $uid)
+                ->from('user')
+                ->delete();
+
+        return ($this->db->affected_rows() != 0);
+    }
 }

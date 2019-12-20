@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 
 import api from '../services/api';
 
-export default function Login() {
+export default function Login({ history }) {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,11 +12,13 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        console.log(name, email)
+        const response = await api.post('/user', {name, email} );
 
-        const response = await api.post('/user', { name, email} );
+        if (response.length == 0) {
+            return false;
+        }
 
-        console.log(response);
+        history.push("/");
     }
 
     return (

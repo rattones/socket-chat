@@ -10,6 +10,7 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login} />
+                <Route path="/login" component={Login} />
                 <Route path="/cadastro" component={Cadastro} />
                 <Route path="/chat" component={Chat} />
             </Switch>

@@ -34,9 +34,7 @@ class Api extends MY_Controller
     public function addUser()
     {
 		$user= $this->input->post();
-        echo '<pre>';
-        var_dump($user);
-		// $response= $this->ModelUser->add($user);
+		$response= $this->ModelUser->add($user);
 
         $this->response(200, [$user]);
     }
@@ -60,7 +58,21 @@ class Api extends MY_Controller
     public function sendMessage()
     {
         $post= $this->input->post();
+        // notify all (socket)
 
         $this->response(200, $post);
+    }
+    /**
+     * remove one user
+     * [by post]
+     * @param string $uid
+     * @return json
+     */
+    public function deleteUser()
+    {
+        $post= $this->input->post();
+        $response= $this->ModelUser->delete($post['uid']);
+
+        $this->response(200, true);
     }
 }
