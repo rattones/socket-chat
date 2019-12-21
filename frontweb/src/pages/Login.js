@@ -9,9 +9,8 @@ export default function Login({ history }) {
 
   const [ show, setShow ]= useState(false);
   const [ email, setEmail ]= useState('');
-  const [ uid, setUid ]= useState('');
 
-  useEffect(()=>{
+  useEffect(( history )=>{
     async function loadUserEmail() {
       const sessUid= await localStorage.getItem('uid');
 

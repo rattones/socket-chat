@@ -63,4 +63,4 @@ $route['auth']                  ['post']=  'api/authenticate';
 // $route['auth']                  ['options']=  'api/authenticate'; // teste pq o axios não estava enviando o post corretamente
 $route['msg']                   ['post']= 'api/sendMessage';
 // $route['msg']                   ['options']= 'api/sendMessage'; // teste pq o axios não estava enviando o post corretamente
-$route['deleteUser']            ['post']= 'api/deleteUser';
+$route['userDelete']            ['post']= 'api/deleteUser';

@@ -14,7 +14,7 @@ export default function Login({ history }) {
 
         const response = await api.post('/user', {name, email} );
 
-        if (response.length == 0) {
+        if (response.length === 0) {
             return false;
         }
 

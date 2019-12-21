@@ -5,7 +5,7 @@ export default  {
 
     async call (type, method, data) {
         return await $.ajax({
-            url: `http://chat.marceloratton.com${method}`,
+            url: `http://socketchat${method}`,
             type: type,
             data: data,
             dataType: 'json',
@@ -21,8 +21,8 @@ export default  {
         return await this.call('GET', method, data);
     },
 
-    // async delete (method, data= null) {
-    //     return await this.call('PUT', method, data);
-    // },
+    async delete (method, data= null) {
+        return await this.call('POST', `${method}Delete`, data);
+    },
 }
 
