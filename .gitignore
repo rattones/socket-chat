@@ -1,2 +1,7 @@
 backend/.phpintel/*
 backend/sftp-config.json
+
+socket-serve/node_modules
+socket-serve/yarn.lock
+backend/error.log
+backend/access.log
