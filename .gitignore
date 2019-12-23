@@ -5,3 +5,5 @@ socket-serve/node_modules
 socket-serve/yarn.lock
 backend/error.log
 backend/access.log
+
+backend-node/node_modules
