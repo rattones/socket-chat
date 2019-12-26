@@ -14,7 +14,8 @@ export default function ListUsers() {
 
             console.log(response);
 
-            setList(response);
+            // setList(response.data); // axios
+            setList(response); // jquery
         }
 
         getLoggedUsers();

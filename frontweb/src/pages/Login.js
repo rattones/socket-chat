@@ -10,7 +10,7 @@ export default function Login({ history }) {
   const [ show, setShow ]= useState(false);
   const [ email, setEmail ]= useState('');
 
-  useEffect(( history )=>{
+  useEffect(( )=>{
     async function loadUserEmail() {
       const sessUid= await localStorage.getItem('uid');
 
@@ -37,7 +37,16 @@ export default function Login({ history }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
+    console.log(email);
+
     const response = await api.post('/auth', { email } );
+      // .then((response)=>{
+      //   console.log(response);
+      // }).catch((exception)=>{
+      //   console.log(exception);
+      // });
+
+    console.log(response)
 
     if (response.length === 0) {
       setShow(true);
@@ -64,7 +73,7 @@ export default function Login({ history }) {
             Entre com seu email de cadastro
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
           Entrar
         </Button>
       </Form>

@@ -17,7 +17,8 @@ export default function Chat({ history }) {
             const sessUid= await localStorage.getItem('uid');
             const response= await api.get(`/user/${sessUid}`);
 
-            setUser(response[0]);
+            // setUser(response.data.pop()); // axios
+            setUser(response[0]); // jquery
         }
 
         getUserData();
@@ -44,7 +45,9 @@ export default function Chat({ history }) {
     async function handleDeleteUser(event) {
         event.preventDefault();
 
-        await api.post('/deleteUser', { uid: user.uid });
+        console.log(user);
+
+        await api.delete('/user', { uid: user.uid });
 
         handleCloseChat(event);
     }

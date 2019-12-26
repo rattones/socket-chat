@@ -34,18 +34,25 @@ module.exports = {
     async auth (req, res) {
         const { email } = req.body;
 
+        console.log(email);
+
         const user = await User.findAll({
                 attributes:[ 'uid', 'name', 'email' ],
                 where: { email }            
+            }).catch((error)=>{
+                console.error(error);
             });
 
         return res.json( user );
     },
 
     async remove (req, res) {
-        const { uid } = req.params;
+        const { uid } = req.body;
 
-        const response= await User.findAndDelete({ uid });
+        const response= await User.destroy({ where: { uid }})
+            .catch((error)=>{
+                console.error(error)
+            });
 
         return res.json('delete');
     }
