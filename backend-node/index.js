@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 const routes= require('./routes')
 
@@ -11,8 +13,13 @@ app.use(cors());         // permite o acesso externo a api
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 
+app.use((req, res, next)=> {
+    req.io= io;
+    next();
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(3333);
+http.listen(3333);

@@ -29,7 +29,9 @@ export default function Chat({ history }) {
     async function handleSendMessage(event) {
         event.preventDefault();
 
-        await api.post('/msg', {user, message});
+        console.log({ user, message });
+
+        await api.post('/msg', {  uid:user.uid, name:user.name, message } );
 
         setMessage('');
     }

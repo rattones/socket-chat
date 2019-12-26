@@ -10,7 +10,7 @@ export default function Login({ history }) {
   const [ show, setShow ]= useState(false);
   const [ email, setEmail ]= useState('');
 
-  useEffect(( )=>{
+  useEffect(( history )=>{
     async function loadUserEmail() {
       const sessUid= await localStorage.getItem('uid');
 
@@ -37,24 +37,28 @@ export default function Login({ history }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(email);
+    // console.log(email);
 
     const response = await api.post('/auth', { email } );
-      // .then((response)=>{
-      //   console.log(response);
-      // }).catch((exception)=>{
-      //   console.log(exception);
-      // });
 
-    console.log(response)
+    // console.log(response)
 
     if (response.length === 0) {
       setShow(true);
       return false;
     }
+
+    console.log(response.data);
         
-    await localStorage.setItem('uid', response[0].uid);
+    // await localStorage.setItem('uid', response.uid); // axios
+    await localStorage.setItem('uid', response[0].uid); // jquery
     history.push('/chat')
+  }
+
+  function handleSign(event) {
+    event.preventDefault();
+
+    history.push('/cadastro');
   }
 
 
@@ -75,6 +79,9 @@ export default function Login({ history }) {
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Entrar
+        </Button>&nbsp;&nbsp;
+        <Button variant="primary" type="submit" onClick={handleSign}>
+          Cadastrar
         </Button>
       </Form>
     </div>

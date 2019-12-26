@@ -14,6 +14,9 @@ export default function Login({ history }) {
 
         const response = await api.post('/user', {name, email} );
 
+        // console.log(response); 
+        // jquery -> axios não funcionou aqui
+
         if (response.length === 0) {
             return false;
         }
