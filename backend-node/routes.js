@@ -6,6 +6,7 @@ const routes = express.Router()
 
 routes.get('/user', UserController.index);
 routes.get('/user/:uid', UserController.index);
+routes.get('/logout', UserController.logout);
 
 routes.post('/user', UserController.create);
 routes.post('/auth', UserController.auth);

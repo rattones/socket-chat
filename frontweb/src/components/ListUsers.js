@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// import io from 'socket.io-client';
+import socket from '../services/socket';
 
 import { ListGroup } from 'react-bootstrap'
 
@@ -12,18 +14,23 @@ export default function ListUsers() {
         async function getLoggedUsers() {
             const response= await api.get('/user');
 
-            console.log(response);
+            // console.log(response);
 
             // setList(response.data); // axios
             setList(response); // jquery
         }
 
         getLoggedUsers();
+
+        // socket.on('emitUserList', ()=> {
+        //     getLoggedUsers();
+        // }) // mudar para usuário online
+
     }, [])
 
     return (
         <>
-            <h3>Usuários Online</h3>
+            <h3>Usuários</h3>
             <ListGroup variant="flush">
             {list.map(
                     user=>(

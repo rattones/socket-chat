@@ -44,7 +44,15 @@ module.exports = {
                 console.error(error);
             });
 
+        req.io.emit('emitUserList', { });
+
         return res.json( user );
+    },
+
+    async logout (req, res) {
+        req.io.emit('emitUserList', { });
+
+        return res.json( true );
     },
 
     async remove (req, res) {
@@ -69,9 +77,9 @@ module.exports = {
 
         if (!user) { res.json( false ); }
 
-        console.log( uid );
+        // console.log( req.io );
 
-        // req.io.emit('methos',data);
+        req.io.emit('emitMessage', { uid, name, message });
 
         res.json( true );
     }

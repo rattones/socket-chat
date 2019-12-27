@@ -24,6 +24,12 @@ export default function Login({ history }) {
         history.push("/");
     }
 
+    function handleLogin(event) {
+        event.preventDefault();
+
+        history.push('/login');
+    }
+
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicName">
@@ -44,8 +50,11 @@ export default function Login({ history }) {
                     Entre com seu email de cadastro
                 </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
                 Cadastrar
+            </Button>&nbsp;&nbsp;
+            <Button variant="primary" type="submit" onClick={handleLogin}>
+                Logar
             </Button>
         </Form>
     );

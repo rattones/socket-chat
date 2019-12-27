@@ -41,6 +41,8 @@ export default function Chat({ history }) {
 
         await localStorage.removeItem('uid');
 
+        // api.get('/logout'); // mudar para usuários online
+
         history.push('/');
     }
 
@@ -69,7 +71,7 @@ export default function Chat({ history }) {
                                     <InputGroup.Text>{user.name}</InputGroup.Text>
                                 </InputGroup.Prepend>
                                 <FormControl
-                                    placeholder="Escreva aqui a sua mensgaaem"
+                                    placeholder="Escreva aqui a sua mensagem"
                                     aria-label="Mensagem"
                                     aria-describedby="basic-addon2"
                                     value={message}
